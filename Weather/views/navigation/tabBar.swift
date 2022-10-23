@@ -11,6 +11,11 @@ struct tabBar: View {
     var action : () ->Void
     var body: some View {
         ZStack{
+            //MARK: the arc shape
+            Arc().fill(Color.tabBarBackground).frame(height: 88)
+                .overlay {
+                    Arc().stroke(Color.tabBarBorder, lineWidth: 0.5)
+                }
             //MARK: button to navigate to the weather screen
             HStack{
                 //MARK: button to expand to the home screen
@@ -19,6 +24,7 @@ struct tabBar: View {
                     
                 } label: {
                     Image(systemName: "mappin.and.ellipse").frame(width: 44, height: 44, alignment: .center)
+                    
                 }
                 Spacer()
                 //MARK: navigation button the navigate to different weather

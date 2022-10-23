@@ -1,8 +1,8 @@
 //
-//  homeview.swift
+//  HomeView.swift
 //  Weather
 //
-//  Created by toyika on 2023/2/4.
+//  Created by Tianyi
 //
 
 import SwiftUI
