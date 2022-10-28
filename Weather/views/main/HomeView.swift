@@ -6,8 +6,15 @@
 //
 
 import SwiftUI
+import BottomSheet
 
-struct homeview: View {
+enum BottomSheetPosition: CGFloat, CaseIterable {
+    case top = 0.83 // relative position
+    case middle = 0.385
+}
+
+struct HomeView: View {
+    @State var bottomSheetPosition: BottomSheetPosition = .middle
     var body: some View {
         NavigationView {
             ZStack {
@@ -23,8 +30,16 @@ struct homeview: View {
                     }
                     Spacer()
                 }.padding(.top,51)
+                //MARK: add the bottom sheet imported
+                BottomSheetView(position:$bottomSheetPosition ,
+                    header: {
+                        // Text(bottomSheetPosition.rawValue.formatted())
+                    },
+                    content: {
+                        forecastView()
+                    })
                 //MARK: add the tab bar
-                tabBar(action: {})
+                tabBar(action: {bottomSheetPosition = .top})
             }.navigationBarHidden(true)
         }
     }
@@ -51,8 +66,8 @@ struct homeview: View {
     }
 }
 
-struct homeview_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        homeview().preferredColorScheme(.dark)
+        HomeView().preferredColorScheme(.dark)
     }
 }

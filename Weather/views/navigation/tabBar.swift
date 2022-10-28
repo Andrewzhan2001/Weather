@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct tabBar: View {
+    // later we can modify it to change the action of button
     var action : () ->Void
     var body: some View {
         ZStack{
@@ -21,7 +22,7 @@ struct tabBar: View {
                 //MARK: button to expand to the home screen
                 // Button(action: {}, label: {})
                 Button {
-                    
+                    action()
                 } label: {
                     Image(systemName: "mappin.and.ellipse").frame(width: 44, height: 44, alignment: .center)
                     
