@@ -14,10 +14,12 @@ struct forecastView: View {
         ScrollView {
             VStack(spacing: 20) {
                 segmentedControl(selection: $selection)
+                
             }
         }.backgroundBlur(radius: 15, opaque: true)
             .background(Color.bottomSheetBackground)
         .clipShape(RoundedRectangle(cornerRadius: 44))
+        // innerShadow act like a border
         .innerShadow(shape: RoundedRectangle(cornerRadius: 44), color: Color.bottomSheetBorderMiddle, lineWidth: 1, offsetX: 0, offsetY: 1, blur: 0, blendMode: .overlay, opacity: 1 - proratedTranslation)
         .overlay{
             Divider()
