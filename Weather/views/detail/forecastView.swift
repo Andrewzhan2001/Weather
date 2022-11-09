@@ -12,9 +12,24 @@ struct forecastView: View {
     @State private var selection = 0
     var body: some View {
         ScrollView {
-            VStack(spacing: 20) {
+            VStack(spacing: 0) {
+                // MARK: control button
                 segmentedControl(selection: $selection)
-                
+                // MARK: Forcast card
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 12) {
+                        if selection == 0 {
+                            ForEach(Forecast.hourly) { forecast in
+                                forecastCard(forecast: forecast, forecastPeriod: .hourly)
+                            }.transition(.offset(x: -430))
+                        } else {
+                            ForEach(Forecast.weekly) { forecast in
+                                forecastCard(forecast: forecast, forecastPeriod: .weekly)
+                            }.transition(.offset(x: 430))
+                        }
+                    }.padding(.vertical, 20)
+                }.padding(.horizontal, 20)
+                Image("Forecast Widgets").opacity(proratedTranslation)
             }
         }.backgroundBlur(radius: 15, opaque: true)
             .background(Color.bottomSheetBackground)
