@@ -15,6 +15,9 @@
 		166441A0298FABF80020E741 /* segmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664419F298FABF80020E741 /* segmentedControl.swift */; };
 		166441A2298FE0E70020E741 /* dataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166441A1298FE0E60020E741 /* dataModel.swift */; };
 		166441A4298FE6FD0020E741 /* forecastCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166441A3298FE6FD0020E741 /* forecastCard.swift */; };
+		166441A62990E7140020E741 /* navigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166441A52990E7130020E741 /* navigationBar.swift */; };
+		166441A82990EC100020E741 /* weatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166441A72990EC100020E741 /* weatherView.swift */; };
+		166441AA2990F2AB0020E741 /* weatherWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166441A92990F2AB0020E741 /* weatherWidget.swift */; };
 		1681DDE7298B6005003E98A8 /* WeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1681DDE6298B6005003E98A8 /* WeatherApp.swift */; };
 		1681DDE9298B6005003E98A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1681DDE8298B6005003E98A8 /* ContentView.swift */; };
 		1681DDEB298B6007003E98A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1681DDEA298B6007003E98A8 /* Assets.xcassets */; };
@@ -31,6 +34,9 @@
 		1664419F298FABF80020E741 /* segmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = segmentedControl.swift; sourceTree = "<group>"; };
 		166441A1298FE0E60020E741 /* dataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataModel.swift; sourceTree = "<group>"; };
 		166441A3298FE6FD0020E741 /* forecastCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forecastCard.swift; sourceTree = "<group>"; };
+		166441A52990E7130020E741 /* navigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navigationBar.swift; sourceTree = "<group>"; };
+		166441A72990EC100020E741 /* weatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherView.swift; sourceTree = "<group>"; };
+		166441A92990F2AB0020E741 /* weatherWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherWidget.swift; sourceTree = "<group>"; };
 		1681DDE3298B6005003E98A8 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1681DDE6298B6005003E98A8 /* WeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApp.swift; sourceTree = "<group>"; };
 		1681DDE8298B6005003E98A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				160FD4B0298EBD7D000266AC /* forecastView.swift */,
+				166441A72990EC100020E741 /* weatherView.swift */,
 			);
 			path = detail;
 			sourceTree = "<group>";
@@ -129,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				1681DE01298E4E75003E98A8 /* tabBar.swift */,
+				166441A52990E7130020E741 /* navigationBar.swift */,
 			);
 			path = navigation;
 			sourceTree = "<group>";
@@ -148,6 +156,7 @@
 				165B94C3298ED93300390861 /* blurLayer.swift */,
 				1664419F298FABF80020E741 /* segmentedControl.swift */,
 				166441A3298FE6FD0020E741 /* forecastCard.swift */,
+				166441A92990F2AB0020E741 /* weatherWidget.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -235,10 +244,13 @@
 				1664419E298EF5960020E741 /* extensions.swift in Sources */,
 				160FD4AC298E7E5A000266AC /* shapes.swift in Sources */,
 				166441A4298FE6FD0020E741 /* forecastCard.swift in Sources */,
+				166441A62990E7140020E741 /* navigationBar.swift in Sources */,
 				1681DE06298E6298003E98A8 /* HomeView.swift in Sources */,
 				1681DE02298E4E75003E98A8 /* tabBar.swift in Sources */,
 				166441A0298FABF80020E741 /* segmentedControl.swift in Sources */,
 				160FD4B1298EBD7D000266AC /* forecastView.swift in Sources */,
+				166441AA2990F2AB0020E741 /* weatherWidget.swift in Sources */,
+				166441A82990EC100020E741 /* weatherView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

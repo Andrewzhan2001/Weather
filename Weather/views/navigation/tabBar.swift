@@ -31,7 +31,7 @@ struct tabBar: View {
                 //MARK: navigation button the navigate to different weather
                 // NavigationLink(destination: <#T##() -> _#>, label: <#T##() -> _#>)
                 NavigationLink {
-                    
+                    weatherView()
                 } label: {
                     Image(systemName: "list.star").frame(width: 44, height: 44)
                 }
