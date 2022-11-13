@@ -10,6 +10,7 @@ import SwiftUI
 struct tabBar: View {
     // later we can modify it to change the action of button
     var action : () ->Void
+    @Binding var forecastCity : ForecastCity
     var body: some View {
         ZStack{
             //MARK: the arc shape
@@ -31,7 +32,7 @@ struct tabBar: View {
                 //MARK: navigation button the navigate to different weather
                 // NavigationLink(destination: <#T##() -> _#>, label: <#T##() -> _#>)
                 NavigationLink {
-                    weatherView()
+                    weatherView(forecastCity: $forecastCity)
                 } label: {
                     Image(systemName: "list.star").frame(width: 44, height: 44)
                 }
@@ -42,6 +43,6 @@ struct tabBar: View {
 
 struct tabBar_Previews: PreviewProvider {
     static var previews: some View {
-        tabBar(action: {}).preferredColorScheme(.dark)
+        EmptyView()
     }
 }

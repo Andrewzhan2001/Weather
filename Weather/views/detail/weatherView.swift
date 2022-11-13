@@ -9,11 +9,12 @@ import SwiftUI
 
 struct weatherView: View {
     @State private var searchText = ""
-    var searchResults : [Forecast] {
+    @Binding var forecastCity: ForecastCity
+    var searchResults : [ForecastCity] {
         if searchText.isEmpty {
             return Forecast.cities
         } else {
-            return Forecast.cities.filter {$0.location.contains(searchText)}
+            return Forecast.cities.filter {$0.name.contains(searchText)}
         }
     }
     var body: some View {
@@ -22,8 +23,8 @@ struct weatherView: View {
             Color.background.ignoresSafeArea()
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 20) {
-                    ForEach(searchResults) { forecast in
-                        weatherWidget(forecast: forecast)
+                    ForEach(searchResults) { city in
+                        weatherWidget(forecast: city.now, location: city.name, forecastCity: $forecastCity)
                     }
                 }
             }.safeAreaInset(edge: .top) {
@@ -39,8 +40,6 @@ struct weatherView: View {
 
 struct weatherView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            weatherView().preferredColorScheme(.dark)
-        }
+        EmptyView()
     }
 }

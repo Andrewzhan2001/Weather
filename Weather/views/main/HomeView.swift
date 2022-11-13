@@ -17,6 +17,7 @@ struct HomeView: View {
     @State var bottomSheetPosition: BottomSheetPosition = .middle
     @State var bottomSheetTranslation: CGFloat = BottomSheetPosition.middle.rawValue
     @State var hasDragged: Bool = false
+    @State var forecastCity : ForecastCity = ForecastCity(name: "Shanghai")
     var proratedTranslation: CGFloat {
         // pure math to get the percentage value you at between top and middle
         (bottomSheetTranslation - BottomSheetPosition.middle.rawValue) /
@@ -31,13 +32,13 @@ struct HomeView: View {
                 ZStack {
                     //MARK: background color
                     Color.background.ignoresSafeArea()
-                    Image("Background").resizable().ignoresSafeArea().offset(y: -proratedTranslation * imageOffset)
-                    Image("House").frame(maxHeight: .infinity, alignment: .top).padding(.top,257).offset(y: -proratedTranslation * imageOffset)
+                    forecastCity.bg.resizable().ignoresSafeArea()
+                    forecastCity.cityIcon.resizable().frame(width:400, height: 300, alignment: .center).frame(maxHeight: .infinity, alignment: .top).padding(.top,220).offset(y: -proratedTranslation * imageOffset)
                     VStack(spacing: -10 * (1-proratedTranslation)) {
-                        Text("Montreal").font(.largeTitle)
+                        Text(forecastCity.name).font(.largeTitle)
                         VStack {
                             Text(textStrings)
-                            Text("H:23°  L:15°").font(.title3.weight(.semibold)).opacity(1-proratedTranslation)
+                            Text("H:\(forecastCity.now.high)°  L:\(forecastCity.now.low)°").font(.title3.weight(.semibold)).opacity(1-proratedTranslation)
                         }
                         Spacer()
                     }.padding(.top,51).offset(y: -proratedTranslation * 46)
@@ -47,7 +48,7 @@ struct HomeView: View {
                             // Text(proratedTranslation.formatted())
                         },
                         content: {
-                            forecastView(proratedTranslation: proratedTranslation)
+                        forecastView(proratedTranslation: proratedTranslation, forecastCity: $forecastCity)
                     })//.onBottomSheetDrag(perform: (transation) -> Void)
                         .onBottomSheetDrag { transation in
                         bottomSheetTranslation = transation / screenHeight
@@ -58,9 +59,9 @@ struct HomeView: View {
                                     hasDragged = false
                                 }
                             }
-                    }
+                        }
                     //MARK: add the tab bar
-                    tabBar(action: {bottomSheetPosition = .top}).offset(y: proratedTranslation * 115)
+                    tabBar(action: {bottomSheetPosition = .top}, forecastCity: $forecastCity)
                 }.navigationBarHidden(true)
             }
         }
@@ -70,8 +71,8 @@ struct HomeView: View {
         Text("\n ") +
         Text("Mostly Clear").font(.title3.weight(.semibold)).foregroundColor(.secondary)
     */
-        var string = AttributedString("16°" + (hasDragged ? " | " : "\n ") + "Mostly Clear")
-        if let temperature = string.range(of: "16°") {
+        var string = AttributedString("\(forecastCity.now.temperature)°" + (hasDragged ? " | " : "\n     ") + forecastCity.now.weather.rawValue)
+        if let temperature = string.range(of: "\(forecastCity.now.temperature)°") {
             string[temperature].font = .system(size: (96 - (proratedTranslation*(96 - 20))), weight: (hasDragged ? .semibold : .thin))
             string[temperature].foregroundColor = .primary
         }
@@ -79,9 +80,9 @@ struct HomeView: View {
             string[pipe].font = .title3.weight(.semibold)
             string[pipe].foregroundColor = .secondary.opacity(proratedTranslation)
         }
-        if let weather = string.range(of: "Mostly Clear") {
+        if let weather = string.range(of: forecastCity.now.weather.rawValue) {
             string[weather].font = .title3.weight(.semibold)
-            string[weather].foregroundColor = .secondary
+            string[weather].foregroundColor = .primary
         }
         return string
         

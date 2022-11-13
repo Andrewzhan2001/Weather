@@ -23,11 +23,11 @@ struct navigationBar: View {
                         // MARK: back button label
                         Text("Weather").font(.title).foregroundColor(.primary)
                     }.frame(height: 44)
-                    // MARK: search bar
                 }
                 Spacer()
                 Image(systemName: "ellipsis.circle").font(.system(size: 28)).frame(width: 44, height: 44, alignment: .trailing)
             }.frame(height: 52)
+            // MARK: search bar
             HStack(spacing: 2) {
                 Image(systemName: "magnifyingglass")
                 TextField("Search for a city", text: $searchText)

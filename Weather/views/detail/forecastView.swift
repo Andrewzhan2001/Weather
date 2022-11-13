@@ -10,6 +10,7 @@ import SwiftUI
 struct forecastView: View {
     var proratedTranslation : CGFloat = 1
     @State private var selection = 0
+    @Binding var forecastCity: ForecastCity
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
@@ -19,17 +20,17 @@ struct forecastView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12) {
                         if selection == 0 {
-                            ForEach(Forecast.hourly) { forecast in
-                                forecastCard(forecast: forecast, forecastPeriod: .hourly)
+                            ForEach(forecastCity.hourly) { forecast in
+                                forecastCard(forecast: forecast, forecastPeriod: .hourly, forecastCity: $forecastCity)
                             }.transition(.offset(x: -430))
                         } else {
-                            ForEach(Forecast.weekly) { forecast in
-                                forecastCard(forecast: forecast, forecastPeriod: .weekly)
+                            ForEach(forecastCity.weekly) { forecast in
+                                forecastCard(forecast: forecast, forecastPeriod: .weekly, forecastCity: $forecastCity)
                             }.transition(.offset(x: 430))
                         }
                     }.padding(.vertical, 20)
                 }.padding(.horizontal, 20)
-                Image("Forecast Widgets").opacity(proratedTranslation)
+                forecastCity.details.opacity(proratedTranslation)
             }
         }.backgroundBlur(radius: 15, opaque: true)
             .background(Color.bottomSheetBackground)
@@ -52,6 +53,6 @@ struct forecastView: View {
 
 struct forecastView_Previews: PreviewProvider {
     static var previews: some View {
-        forecastView().background(Color.background).preferredColorScheme(.dark)
+        EmptyView()
     }
 }
