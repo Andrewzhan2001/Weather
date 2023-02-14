@@ -8,12 +8,12 @@ https://user-images.githubusercontent.com/97903569/218795005-77f0c497-a02e-4cc9-
 
 ## 📝 Key Features 
 
-- This is an Weather using `Swift` as the programming language with `SwifUI` framework.
-- Rich animation and information in bottom sheet on the main menu.
-- Switch to different city by using navigation view.
-- Each city have is own background and city image.
+- This is a Weather using `Swift` as the programming language with the SwifUI framework.
+- Rich animation and information in the bottom sheet on the main screen.
+- Switch to a different city by using the navigation view.
+- Each city has its own background and city image.
 
-## 🔧 Notes 
-Due to the price of Apple development program required to deploy the app, this project is not deployed.
+## 🔧 Notes
+Due to the price of the Apple development program required to deploy the app, this project is not deployed.
 
 
