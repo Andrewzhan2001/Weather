@@ -8,7 +8,7 @@ https://user-images.githubusercontent.com/97903569/218795005-77f0c497-a02e-4cc9-
 
 ## 📝 Key Features 
 
-- This is a Weather using `Swift` as the programming language with the SwifUI framework.
+- This is a Weather using `Swift` as the programming language with the SwifUI Interface.
 - Rich animation and information in the bottom sheet on the main screen.
 - Switch to a different city by using the navigation view.
 - Each city has its own background and city image.
