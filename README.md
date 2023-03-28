@@ -13,7 +13,3 @@ https://user-images.githubusercontent.com/97903569/218795005-77f0c497-a02e-4cc9-
 - Switch to a different city by using the navigation view.
 - Each city has its own background and city image.
 
-## 🔧 Notes
-Due to the price of the Apple development program required to deploy the app, this project is not deployed.
-
-
